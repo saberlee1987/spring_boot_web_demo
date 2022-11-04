@@ -1,17 +1,15 @@
 package com.saber.spring_boot_web_demo.services.impl;
 
-import com.saber.spring_boot_web_demo.dto.ErrorResponseDto;
 import com.saber.spring_boot_web_demo.dto.hi.HelloDto;
 import com.saber.spring_boot_web_demo.dto.hi.HelloRequestDto;
-import com.saber.spring_boot_web_demo.exceptions.GatewayException;
 import com.saber.spring_boot_web_demo.services.HelloService;
 import com.saber.spring_boot_web_demo.services.routes.Headers;
 import com.saber.spring_boot_web_demo.services.routes.Routes;
+import com.saber.spring_boot_web_demo.utils.CheckExceptionHelper;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.camel.Exchange;
 import org.apache.camel.ProducerTemplate;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -20,6 +18,7 @@ import org.springframework.stereotype.Service;
 public class HelloServiceImpl implements HelloService {
 
     private final ProducerTemplate producerTemplate;
+    private final CheckExceptionHelper exceptionHelper;
     @Override
     public HelloDto sayHello(HelloRequestDto dto,String correlation) {
         log.info("Request for correlation : {} sayHello with body ===> {}",correlation,dto);
@@ -39,16 +38,9 @@ public class HelloServiceImpl implements HelloService {
             exchange.getIn().setHeader(Headers.firstName,firstName);
             exchange.getIn().setHeader(Headers.lastName,lastName);
         });
-        checkException(responseExchange);
+        exceptionHelper.checkException(responseExchange);
         return responseExchange.getIn().getBody(HelloDto.class);
     }
 
-    private void checkException(Exchange exchange){
-        int statusCode = exchange.getIn().getHeader(Exchange.HTTP_RESPONSE_CODE, Integer.class);
-        if (statusCode != HttpStatus.OK.value() && exchange.getIn().getBody() instanceof ErrorResponseDto) {
-            String correlation = exchange.getIn().getHeader(Headers.correlation,String.class);
-            ErrorResponseDto errorResponse = exchange.getIn().getBody(ErrorResponseDto.class);
-            throw new GatewayException(statusCode, correlation, errorResponse);
-        }
-    }
+
 }
