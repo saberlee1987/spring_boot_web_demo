@@ -44,7 +44,7 @@ service:
   swagger:
     title: 'spring boot web demo'
     description: 'this is sample spring boot application web demo'
-    version : 'version1.0.0-1401/08/11'
+    version : 'version1.0.0-1401/08/16'
 
 springdoc:
 
