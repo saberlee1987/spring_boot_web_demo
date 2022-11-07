@@ -5,6 +5,7 @@ import com.saber.spring_boot_web_demo.entities.Permission;
 import com.saber.spring_boot_web_demo.entities.User;
 
 import java.util.List;
+import java.util.Set;
 
 public interface UserRepository {
 
@@ -17,15 +18,16 @@ public interface UserRepository {
     ///</editor-fold>
 
     ///<editor-fold desc="group">
-        List<Group> getAllGroupOfUser(Integer userId);
+        Set<Group> getAllGroupOfUser(Integer userId);
         boolean assignGroupToUser(Integer userId,Integer groupId);
         boolean deleteGroupFromUser(Integer userId,Integer groupId);
         boolean checkAssignGroupToUser(Integer userId,Integer groupId);
+        boolean checkAssignGroupToUserWithGroupName(Integer userId,String groupName);
 
     ///</editor-fold>
 
     ///<editor-fold desc="vip_permission">
-        List<Permission> getAllVipPermissionOfUser(Integer userId);
+    Set<Permission> getAllVipPermissionOfUser(Integer userId);
         boolean assignVipPermissionToUser(Integer userId,Integer vipPermissionId);
         boolean deleteVipPermissionFromUser(Integer userId,Integer vipPermissionId);
         boolean checkAssignVipPermissionToUser(Integer userId,Integer vipPermissionId);
@@ -33,7 +35,7 @@ public interface UserRepository {
     ///</editor-fold>
 
     ///<editor-fold desc="block_permission">
-        List<Permission> getAllBlockPermissionOfUser(Integer userId);
+    Set<Permission> getAllBlockPermissionOfUser(Integer userId);
         boolean assignBlockPermissionToUser(Integer userId,Integer blockPermissionId);
         boolean deleteBlockPermissionFromUser(Integer userId,Integer blockPermissionId);
         boolean checkAssignBlockPermissionToUser(Integer userId,Integer blockPermissionId);
