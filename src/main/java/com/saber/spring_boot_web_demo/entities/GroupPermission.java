@@ -6,10 +6,10 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
-@Entity
-@Table(name = "group_permission")
+//@Entity
+//@Table(name = "group_permission")
 @Getter
 @Setter
 @EqualsAndHashCode
@@ -24,7 +24,6 @@ public class GroupPermission {
     @ManyToOne
     @JoinColumn(name = "group_id",nullable = false)
     private Group group;
-    @Temporal(value = TemporalType.TIMESTAMP)
-    private Timestamp created_at;
+    private LocalDateTime created_at;
 
 }

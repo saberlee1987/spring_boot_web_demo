@@ -5,12 +5,14 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.persistence.*;
-import java.sql.Timestamp;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import java.time.LocalDateTime;
 import java.util.Set;
 
-@Entity
-@Table(name = "permissions")
+//@Entity
+//@Table(name = "permissions")
 @Getter
 @Setter
 @EqualsAndHashCode
@@ -19,20 +21,17 @@ public class Permission {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(name = "name_fa")
+//    @Column(name = "name_fa")
     private String name_fa;
-    @Column(name = "name_en")
+//    @Column(name = "name_en")
     private String name_en;
-    @Temporal(value = TemporalType.TIMESTAMP)
-    private Timestamp created_at;
-    @Temporal(value = TemporalType.TIMESTAMP)
-    private Timestamp  updated_at;
-    @Temporal(value = TemporalType.TIMESTAMP)
-    private Timestamp  deleted_at;
-    @OneToMany(mappedBy = "permission",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    private LocalDateTime created_at;
+    private LocalDateTime  updated_at;
+    private LocalDateTime  deleted_at;
+//    @OneToMany(mappedBy = "permission",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private Set<GroupPermission> groupPermissions;
-    @OneToMany(mappedBy = "permission",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+//    @OneToMany(mappedBy = "permission",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private Set<VipPermission> vipPermissions;
-    @OneToMany(mappedBy = "permission",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+//    @OneToMany(mappedBy = "permission",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private Set<BlockPermission> blockPermissions;
 }

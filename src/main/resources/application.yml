@@ -1,6 +1,6 @@
 server:
   port: 9200
-  max-http-header-size: 756000
+  max-http-header-size: 10240000
   jetty:
     threads:
       min: 100
@@ -20,8 +20,8 @@ spring:
     password: AdminSaber66
     hikari:
       max-lifetime: 10000
-      maximum-pool-size: 10
-      minimum-idle: 5
+      maximum-pool-size: 6
+      minimum-idle: 3
       connection-timeout: 10000
       idle-timeout: 10000
       keepalive-time: 10000
@@ -30,7 +30,7 @@ spring:
     hibernate:
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
-      ddl-auto: none
+      ddl-auto: update
     database: mysql
     properties:
       hibernate:
@@ -44,12 +44,12 @@ service:
   swagger:
     title: 'spring boot web demo'
     description: 'this is sample spring boot application web demo'
-    version : 'version1.0.0-1401/08/16'
+    version : 'version1.1.0-1403/10/26'
 
 springdoc:
 
   swagger-ui:
-    path: /swagger-ui.html
+    path: /swagger
     display-request-duration: true
     display-operation-id: true
     operations-sorter: alpha

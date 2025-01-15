@@ -5,33 +5,29 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.persistence.*;
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.Set;
 
-@Entity
-@Table(name = "groups")
+//@Entity
+//@Table(name = "groups")
 @Getter
 @Setter
 @EqualsAndHashCode
 @ToString(exclude = {"groupUsers","groupPermissions"})
 public class Group {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(name = "name_fa")
+//    @Column(name = "name_fa")
     private String name_fa;
-    @Column(name = "name_en")
+//    @Column(name = "name_en")
     private String name_en;
-    @Temporal(value = TemporalType.TIMESTAMP)
-    private Timestamp created_at;
-    @Temporal(value = TemporalType.TIMESTAMP)
-    private Timestamp  updated_at;
-    @Temporal(value = TemporalType.TIMESTAMP)
-    private Timestamp  deleted_at;
-    @OneToMany(mappedBy = "group",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    private LocalDateTime created_at;
+    private LocalDateTime  updated_at;
+    private LocalDateTime  deleted_at;
+//    @OneToMany(mappedBy = "group",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private Set<GroupUser> groupUsers;
 
-    @OneToMany(mappedBy = "group",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+//    @OneToMany(mappedBy = "group",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private Set<GroupPermission> groupPermissions;
 }

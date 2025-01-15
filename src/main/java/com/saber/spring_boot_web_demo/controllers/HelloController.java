@@ -34,7 +34,7 @@ public class HelloController {
     private final HelloService helloService;
 
     @PostMapping(value = "/sayHello", consumes = MediaType.APPLICATION_JSON_VALUE)
-    @Operation(summary = "sayHello", description = "sayHello", method = "post", tags = "sayHello service",
+    @Operation(summary = "sayHello", description = "sayHello", method = "post", tags = "hello service",
             requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody(required = true, description = "helloRequest dto",
                     content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE
                             ,examples = @ExampleObject(value = "{\"firstName\": \"saber\",\"lastName\": \"azizi\"}")
@@ -65,7 +65,7 @@ public class HelloController {
     }
 
     @GetMapping(value = "/sayHello")
-    @Operation(summary = "sayHello", description = "sayHello", method = "post", tags = "sayHello service",
+    @Operation(summary = "sayHello", description = "sayHello", method = "post", tags = "hello service",
             parameters = {
                     @Parameter(in = ParameterIn.QUERY, name = "firstName", required = true, example = "bruce"),
                     @Parameter(in = ParameterIn.QUERY, name = "lastName", required = true, example = "lee")

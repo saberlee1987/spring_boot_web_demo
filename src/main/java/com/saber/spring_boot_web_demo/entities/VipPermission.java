@@ -5,26 +5,24 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.persistence.*;
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
-@Entity
-@Table(name = "vip_permission")
+//@Entity
+//@Table(name = "vip_permission")
 @Getter
 @Setter
 @EqualsAndHashCode
 @ToString(exclude = {"permission","user"})
 public class VipPermission {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @ManyToOne
-    @JoinColumn(name = "permission_id",nullable = false)
+//    @ManyToOne
+//    @JoinColumn(name = "permission_id",nullable = false)
     private Permission permission;
-    @ManyToOne
-    @JoinColumn(name = "user_id",nullable = false)
+//    @ManyToOne
+//    @JoinColumn(name = "user_id",nullable = false)
     private User user;
-    @Temporal(value = TemporalType.TIMESTAMP)
-    private Timestamp created_at;
+    private LocalDateTime created_at;
 
 }
