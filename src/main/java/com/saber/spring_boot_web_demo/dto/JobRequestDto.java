@@ -1,8 +1,8 @@
 package com.saber.spring_boot_web_demo.dto;
 
+import jakarta.validation.constraints.*;
 import lombok.Data;
 
-import javax.validation.constraints.*;
 import java.math.BigDecimal;
 
 @Data

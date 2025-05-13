@@ -1,8 +1,8 @@
 package com.saber.spring_boot_web_demo.entities;
 
+import jakarta.persistence.*;
 import lombok.Data;
 
-import javax.persistence.*;
 import java.math.BigDecimal;
 @Data
 @Entity

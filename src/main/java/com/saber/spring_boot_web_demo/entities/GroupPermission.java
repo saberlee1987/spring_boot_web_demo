@@ -1,11 +1,11 @@
 package com.saber.spring_boot_web_demo.entities;
 
+import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.persistence.*;
 import java.time.LocalDateTime;
 
 //@Entity

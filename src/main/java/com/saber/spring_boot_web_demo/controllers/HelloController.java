@@ -14,15 +14,15 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import java.util.UUID;
 
 @RestController
@@ -59,7 +59,7 @@ public class HelloController {
             @ApiResponse(responseCode = "504", description = "GATEWAY_TIMEOUT",
                     content = {@Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponseDto.class))}),
             } )
-    public ResponseEntity<HelloDto> sayHello(@RequestBody @Valid @NotNull(message = "request  body is required") HelloRequestDto dto,HttpServletRequest request) {
+    public ResponseEntity<HelloDto> sayHello(@RequestBody @Valid @NotNull(message = "request  body is required") HelloRequestDto dto, HttpServletRequest request) {
         HelloDto helloDto = helloService.sayHello(dto,getCorrelation(request));
         return ResponseEntity.ok(helloDto);
     }
@@ -91,7 +91,7 @@ public class HelloController {
                     content = {@Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponseDto.class))}),
     } )
     public ResponseEntity<HelloDto> sayHelloGet(@RequestParam(name = "firstName") @NotBlank(message = "firstName is required") String firstName
-            , @RequestParam(name = "lastName") @NotBlank(message = "lastName is required") String lastName,HttpServletRequest request) {
+            , @RequestParam(name = "lastName") @NotBlank(message = "lastName is required") String lastName, HttpServletRequest request) {
         HelloDto helloDto = helloService.sayHello(firstName,lastName,getCorrelation(request));
         return ResponseEntity.ok(helloDto);
     }

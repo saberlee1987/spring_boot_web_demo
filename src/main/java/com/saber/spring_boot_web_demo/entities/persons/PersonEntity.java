@@ -3,11 +3,10 @@ package com.saber.spring_boot_web_demo.entities.persons;
 import com.google.gson.GsonBuilder;
 import com.google.gson.LongSerializationPolicy;
 import com.google.gson.ToNumberPolicy;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
-
-import javax.persistence.*;
 import java.util.Objects;
 
 @Entity

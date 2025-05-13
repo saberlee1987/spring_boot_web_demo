@@ -3,10 +3,9 @@ package com.saber.spring_boot_web_demo.repositories.impl;
 import com.saber.spring_boot_web_demo.dto.persons.PersonDto;
 import com.saber.spring_boot_web_demo.entities.persons.PersonEntity;
 import com.saber.spring_boot_web_demo.repositories.PersonRepository;
+import jakarta.persistence.EntityManager;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
-
-import javax.persistence.EntityManager;
 
 @Repository
 @AllArgsConstructor
