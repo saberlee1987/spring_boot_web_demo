@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fontFamilies>
+    <fontFamily name="XB Titre">
+        <normal><![CDATA[fonts/XBTitre/XB Titre.ttf]]></normal>
+        <pdfEncoding><![CDATA[Identity-H]]></pdfEncoding>
+    </fontFamily>
+    <fontFamily name="XB Kayhan">
+        <normal><![CDATA[fonts/XBKayhan/XBKayhan_p30download.com.TTF]]></normal>
+        <bold><![CDATA[fonts/XBKayhan/XBKayhanBold_p30download.com.TTF]]></bold>
+        <pdfEncoding><![CDATA[Identity-H]]></pdfEncoding>
+    </fontFamily>
+    <fontFamily name="B Nazanin">
+        <normal><![CDATA[fonts/BNazanin/BNazanin.ttf]]></normal>
+        <bold><![CDATA[fonts/BNazanin/BNaznnBd.ttf]]></bold>
+        <pdfEncoding><![CDATA[Identity-H]]></pdfEncoding>
+    </fontFamily>
+    <fontFamily name="FontAw">
+        <normal><![CDATA[fonts/FontAw/FontAwesome.ttf]]></normal>
+        <pdfEncoding><![CDATA[Identity-H]]></pdfEncoding>
+    </fontFamily>
+</fontFamilies>

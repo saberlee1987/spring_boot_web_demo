@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reportTest1" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="578da2fd-4d8e-4bc2-b731-96b70d22bb91">
+	<parameter name="sexKindTitle" class="java.lang.String"/>
+	<parameter name="fullName" class="java.lang.String"/>
+	<parameter name="fatherName" class="java.lang.String"/>
+	<parameter name="birthDate" class="java.lang.String"/>
+	<parameter name="identityNumber" class="java.lang.String"/>
+	<parameter name="identityIssueCityTitle" class="java.lang.String"/>
+	<parameter name="identitySerial" class="java.lang.String"/>
+	<parameter name="identifierNo" class="java.lang.String"/>
+	<parameter name="postalCode" class="java.lang.String"/>
+	<parameter name="address" class="java.lang.String"/>
+	<parameter name="phoneNumber" class="java.lang.String"/>
+	<parameter name="mobileNumber" class="java.lang.String"/>
+	<parameter name="email" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="160" y="10" width="220" height="50" uuid="9a511310-44ad-4fed-819c-26059be4b652"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="B Nazanin" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[به نام خدا]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="40" splitType="Stretch">
+			<staticText>
+				<reportElement x="190" y="10" width="140" height="30" uuid="a30226e0-f2e6-4b36-99e4-df22642cdb2d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="B Nazanin" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[اینجا هدر است]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="203" splitType="Stretch">
+			<staticText>
+				<reportElement x="10" y="10" width="530" height="60" uuid="99280b0b-11b8-42f2-bd75-bf77d623b0af"/>
+				<textElement textAlignment="Right">
+					<font fontName="B Nazanin" size="14"/>
+				</textElement>
+				<text><![CDATA[در صورتی که پارامتر مبلغ کارمزد مقدار داشته باشد این مبلغ باید بزرگتر از صفر باشد. در صورتیکه پارامتر مبلغ کارمزد (contractInfo.commissionAmount) در ورودی سرویس مقدار داشت و مقدار آن صفر یا کوچکتر از صفر باشد کد خطا 9046 با عنوان "مبلغ کارمزد باید بزرگتر از صفر باشد." به فراخواننده برگردانده شود و سرویس متوقف شود. در غیر اینصورت ادامه عملیات بلامانع است]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="40" y="80" width="398" height="90" uuid="a1216d90-6fcb-4619-9c2f-01b8ffb2444b"/>
+				<textElement markup="html">
+					<font fontName="B Nazanin" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["-"+$V{REPORT_COUNT}+" "+
+$P{sexKindTitle} +" <b>"+ $P{fullName} +"</b>"+
+" فرزند <b>"+ $P{fatherName} +"</b>"+
+" تاریخ تولد <b>"+ "&xyz;"+ $P{birthDate}.replace( "-","/" ) +"</b>"+
+" شماره شناسنامه <b>"+ $P{identityNumber} +"</b>"+
+" محل صدور <b>"+ $P{identityIssueCityTitle} +"</b>"+
+" شماره سریال شناسنامه <b>"+ $P{identitySerial} +"</b>"+
+" کدملی/شماره اختصاصی اتباع خارجی/شماره گذرنامه اتباع خارجی <b>"+ $P{identifierNo} +"</b>"+
+" کد اقتصادی <b> "+"----------"+"</b>"+
+" کد پستی <b>"+ $P{postalCode} +"</b>"+
+" به نشانی <b>"+ $P{address} +"</b>"+
+" شماره تماس ثابت <b>"+ $P{phoneNumber} +"</b>"+
+" شماره تلفن همراه <b>"+ $P{mobileNumber} +"</b>"+
+" پست الکترونیک "+" <span style=' font-weight: bold;'>"+ $P{email} +"</span>"
++"ddddd"+"sdaddf"+"sdasdsa"+" که از اين پس در اين قرارداد قرض گیرنده ناميده مي‌شود ."
+]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="63" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="10" width="100" height="30" uuid="acba97ba-9179-43eb-b817-f699c5bd6f79"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>
